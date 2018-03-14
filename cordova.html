@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <title>Hello World</title>
+        <script type="text/javascript" src="cordova.js"></script>
+        <style type="text/css">
+            html, body { width:100%; height:100%; margin:0; padding:0; overflow:hidden; background-color:white; }
+            div#fullpage { width:100%; height:100%; margin:0; padding:0; border:0px solid red; text-align:center; vertical-align:middle; }
+        </style>
+    </head>
+    <body onload="onLoad()">
+    <script>
+    var httpd = null;
+    function onLoad() {
+    	document.addEventListener("deviceready", onDeviceReady, false);
+    }
+    function onDeviceReady() {
+        httpd = ( cordova && cordova.plugins && cordova.plugins.CorHttpd ) ? cordova.plugins.CorHttpd : null;
+        startServer("public");
+    }
+	
+    function startServer( wwwroot ) {
+    	if ( httpd ) {
+    	    httpd.getURL(
+				function(url){
+					if(url.length <= 0) {
+						httpd.startServer( {'www_root':wwwroot,'port':8080,'localhost_only' : true},
+							function( url ){ cordova.InAppBrowser.open(url, '_self', 'location=no,zoom=no'); },
+							function( error ){ }
+						);
+					}
+				},
+				function(){ }
+			);
+    	}
+    }
+	
+    function stopServer() {
+    	if ( httpd ) {
+    	    httpd.stopServer( function(){ }, function( error ){ } );
+    	}
+    }
+    </script>
+
+    <div id="fullpage">
+          <p>Demo for CorHttpd Plugin</p>
+    </div>
+
+    </body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "name": "gatsby-grommet-cordova-starter",
+  "description": "A template of a Gatsby/Grommet/Cordova starter project",
+  "version": "1.0.0",
+  "author": "Dwlt Kvn",
+  "bugs": {
+    "url": "https://github.com/Kayssidi/gatsby-grommet-cordova-starter/issues"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    
+    "clean": "git clean -xfd .cache public/",
+    "watchers": "sh ./extandWatchers.sh",
+    
+    "initCordova":"cordova create cordova && pushd cordova && cordova platform add android",
+    "pluginCordova":"pushd cordova && cordova plugin add cordova-plugin-inappbrowser && cordova plugin add cordova-plugin-httpd",
+    "copyCordova":"rmdir /S /Q .\\cordova\\www\\ && pause && mkdir .\\cordova\\www\\ && pause && mkdir .\\cordova\\www\\public\\ && pause && copy .\\cordova.html .\\cordova\\www\\index.html && pause && copy .\\public .\\cordova\\www\\public\\",
+    "buildAndroid":"pushd cordova && cordova build android"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "firebase": "^4.9.1",
+    "gatsby": "^1.1.0",
+    "gatsby-link": "^1.3.2",
+    "grommet": "^1.5.0",
+    "grommet-icons": "^0.15.0",
+    "node-sass": "^4.5.2",
+    "prop-types": "^15.5.10",
+    "re-base": "^3.2.2",
+    "react": "^15.6.1",
+    "react-day-picker": "^7.0.7",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^4.1.1"
+  },
+  "homepage": "https://github.com/Kayssidi/gatsby-grommet-cordova-starter",
+  "keywords": [
+    "gatsby",
+    "starter",
+    "gatsby-starter",
+    "grommet",
+    "cordova"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kayssidi/gatsby-grommet-cordova-starter.git"
+  }
+}
