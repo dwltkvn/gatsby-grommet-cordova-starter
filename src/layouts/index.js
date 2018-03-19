@@ -18,14 +18,29 @@ export default class IndexLayout extends React.Component {
   static propTypes = {
     children: PropTypes.func,
   }
+  
+  constructor(props) {
+    super(props);
+
+    this.toogleSidebar = this.toogleSidebar.bind(this);
+
+    this.state =
+    {
+      stateShowSidebar : false,
+    }
+  }
+  
+  toogleSidebar() {
+    this.setState( (prevState, props) => ({ stateShowSidebar: !prevState.stateShowSidebar }) );
+  }
 
   render() {
     return (
         <App>
           <Split fixed={true} flex="right">
-            <AppSidebar/>
+            { this.state.stateShowSidebar ? <AppSidebar propCbOnClose={ this.toogleSidebar }/>:null }
             <Box>
-              <AppHeader/>
+              <AppHeader propCbOnMenuIconClicked={ this.toogleSidebar }/>
               {this.props.children()}
               <AppFooter/>
             </Box>

@@ -11,6 +11,7 @@ import Title from 'grommet/components/Title';
 
 // Icons
 import ActionsIcon from "grommet/components/icons/base/Actions";
+import MenuIcon from "grommet/components/icons/base/Menu";
 
 class AppHeader extends React.Component {
   state = {};
@@ -22,6 +23,7 @@ class AppHeader extends React.Component {
   render() {
     return (
       <Header>
+        <Anchor icon={<MenuIcon />} onClick={ this.props.propCbOnMenuIconClicked } />
         <Title>Sample Title</Title>
         <Box flex={true} justify='end' direction='row' responsive={false}>
           <Search inline={true} fill={true} size='medium' placeHolder='Search' dropAlign={{"right": "right"}} />
@@ -35,5 +37,9 @@ class AppHeader extends React.Component {
     );
   }
 }
+
+AppHeader.propTypes = {
+  propCbOnMenuIconClicked: PropTypes.func.isRequired
+};
 
 export default (AppHeader);
