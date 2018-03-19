@@ -22,12 +22,12 @@ class AppHeader extends React.Component {
 
   render() {
     return (
-      <Header>
+      <Header fixed={true}>
         <Anchor icon={<MenuIcon />} onClick={ this.props.propCbOnMenuIconClicked } />
         <Title>Sample Title</Title>
         <Box flex={true} justify='end' direction='row' responsive={false}>
           <Search inline={true} fill={true} size='medium' placeHolder='Search' dropAlign={{"right": "right"}} />
-          <Menu icon={<ActionsIcon />} dropAlign={{"right": "right"}}>
+          <Menu icon={<ActionsIcon />} dropAlign={{"right": "right", "top":"bottom"}}>
             <Anchor href='#' className='active'>First</Anchor>
             <Anchor href='#'>Second</Anchor>
             <Anchor href='#'>Third</Anchor>
