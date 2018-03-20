@@ -12,9 +12,8 @@
     "build": "gatsby build",
     "clean": "git clean -xfd .cache public/",
     "watchers": "sh ./extandWatchers.sh",
-    "initCordova": "cordova create cordova && pushd cordova && cordova platform add android",
-    "pluginCordova": "pushd cordova && cordova plugin add cordova-plugin-inappbrowser && cordova plugin add cordova-plugin-httpd",
-    "copyCordova": "rmdir /S /Q .\\cordova\\www\\ && pause && mkdir .\\cordova\\www\\ && pause && mkdir .\\cordova\\www\\public\\ && pause && copy .\\cordova.html .\\cordova\\www\\index.html && pause && copy .\\public .\\cordova\\www\\public\\",
+    "cleanCordova": "del /S /Q www\\public && rmdir /S /Q cordova",
+    "initCordova": "xcopy public www\\public && pause && cordova create cordova --template=./www && pushd cordova && cordova platform add android && cordova plugin add cordova-plugin-inappbrowser && cordova plugin add cordova-plugin-httpd",
     "buildAndroid": "pushd cordova && cordova build android"
   },
   "dependencies": {
