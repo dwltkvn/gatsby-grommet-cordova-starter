@@ -22,7 +22,7 @@ class AppHeader extends React.Component {
 
   render() {
     return (
-      <Header fixed={true}>
+      <Header fixed={false}>
         <Anchor icon={<MenuIcon />} onClick={ this.props.propCbOnMenuIconClicked } />
         <Title>Sample Title</Title>
         <Box flex={true} justify='end' direction='row' responsive={false}>
